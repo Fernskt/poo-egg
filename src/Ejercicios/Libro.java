@@ -1,5 +1,5 @@
 
-package poo.egg;
+package Ejercicios;
 
 import java.util.Scanner;
 

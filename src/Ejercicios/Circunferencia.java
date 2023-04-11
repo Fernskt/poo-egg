@@ -1,5 +1,5 @@
 
-package poo.egg;
+package Ejercicios;
 
 import java.util.Scanner;
 
@@ -20,11 +20,18 @@ public class Circunferencia {
         this.radio = radio;
     }
     
-    public double crearCircunferencia(){
+    public void crearCircunferencia(){
         Scanner leer = new Scanner(System.in);
         System.out.println("Ingrese el radio de la circunferencia");
         this.radio = leer.nextDouble();
-        return this.radio;
+        setRadio(radio);
+    }
+    public double area(){
+        return Math.PI*radio*radio;
+    }
+    
+    public double perimetro(){
+        return 2 * Math.PI * radio;
     }
    
 }
