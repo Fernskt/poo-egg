@@ -2,67 +2,70 @@ package ejercicio3guia8;
 
 import Entidades.Persona;
 import Servicios.PersonaServicio;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Ejercicio3Guia8 {
 
     public static void main(String[] args) {
-        /*Crear 4 objetos de tipo Persona con distintos valores, 
-        a continuación, llamaremos todos los métodos para cada objeto, 
-        deberá comprobar si la persona está en su peso ideal, tiene sobrepeso 
-        o está por debajo de su peso ideal e indicar para cada objeto si la 
-        persona es mayor de edad.
-        --------------------------------------------------------------------
-        Por último, guardaremos los resultados de los métodos calcularIMC y 
-        esMayorDeEdad en distintas variables(arrays), para después calcular un 
-        porcentaje de esas 4 personas cuantas están por debajo de su peso, 
-        cuantas en su peso ideal y cuantos, por encima, y también calcularemos 
-        un porcentaje de cuantos son mayores de edad y cuantos menores. 
-        Para esto, podemos crear unos métodos adicionales.
-         */
 
-        PersonaServicio persona = new PersonaServicio();
-        Persona persona1 = persona.crearPersona();
-        Persona persona2 = persona.crearPersona();
-        Persona persona3 = persona.crearPersona();
-        Persona persona4 = persona.crearPersona();
+        PersonaServicio servicio = new PersonaServicio();
 
-        int[] IMCTotal = new int[4];
-        boolean[] edades = new boolean[4];
+        Persona p1 = servicio.crearPersona();
+        Persona p2 = servicio.crearPersona();
+        Persona p3 = servicio.crearPersona();
+        Persona p4 = servicio.crearPersona();
 
-        for (int i = 0; i < 4; i++) {
-            // IMCTotal[i] = persona.calcularIMC(persona1);
+        List<Integer> imcs = new ArrayList<>();
+        List<Boolean> mayoresEdad = new ArrayList<>();
 
-            switch (i) {
-                case 0:
-                    IMCTotal[i] = persona.calcularIMC(persona1);
-                    break;
-                case 1:
-                    IMCTotal[i] = persona.calcularIMC(persona2);
-                    break;
-                case 2:
-                    IMCTotal[i] = persona.calcularIMC(persona3);
-                    break;
-                case 3:
-                    IMCTotal[i] = persona.calcularIMC(persona4);
-                    break;
+        Persona[] personas = new Persona[]{p1, p2, p3, p4};
+        for (int i = 0; i < personas.length; i++) {
+            Persona p = personas[i];
+            
+            System.out.println("Datos de la persona:");
+            System.out.println(p.getNombre() + " - " + p.getEdad() + " años - " + p.getSexo() + " - " + p.getPeso() + " kg - " + p.getAltura() + " m");
+
+            int imc = servicio.calcularIMC(p);
+            imcs.add(imc);
+            String mensajeIMC = "";
+            if (imc == -1) {
+                mensajeIMC = "Está por debajo de su peso ideal";
+            } else if (imc == 0) {
+                mensajeIMC = "Está en su peso ideal";
+            } else {
+                mensajeIMC = "Tiene sobrepeso";
             }
+            System.out.println(mensajeIMC);
+
+            // es mayor de edad
+            boolean esMayor = servicio.esMayorDeEdad(p);
+            mayoresEdad.add(esMayor);
+            String mensajeEdad = esMayor ? "Es mayor de edad" : "Es menor de edad";
+            System.out.println(mensajeEdad);
+
+            System.out.println("-------------------------");
         }
 
-        for (int i = 0; i < 4; i++) {
-            switch (i) {
-                case 0:
-                    edades[i] = persona.esMayorDeEdad(persona1);
-                    break;
-                case 1:
-                    edades[i] = persona.esMayorDeEdad(persona2);
-                    break;
-                case 2:
-                   edades[i] = persona.esMayorDeEdad(persona3);
-                    break;
-                case 3:
-                   edades[i] = persona.esMayorDeEdad(persona4);
-                    break;
+        // porcentaje de personas con cada tipo de IMC
+        int total = imcs.size();
+        int bajoPeso = 0;
+        int pesoIdeal = 0;
+        int sobrePeso = 0;
+        for (int imc : imcs) {
+            if (imc == -1) {
+                bajoPeso++;
+            } else if (imc == 0) {
+                pesoIdeal++;
+            } else {
+                sobrePeso++;
             }
         }
+        double porcentajeBajoPeso = ((double) bajoPeso / total) * 100;
+        double porcentajePesoIdeal = ((double) pesoIdeal / total) * 100;
+        double porcentajeSobrePeso = ((double) sobrePeso / total) * 100;
+        System.out.println("Porcentaje de personas con bajo peso: " + porcentajeBajoPeso + "%");
+        System.out.println("Porcentaje de personas en su peso ideal: " + porcentajePesoIdeal + "%");
+        System.out.println("Porcentaje de personas con sobrepeso: " + porcentajeSobrePeso + "%");
     }
 }
