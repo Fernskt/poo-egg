@@ -99,18 +99,34 @@ tiene la frase ingresada.*/
     }
     
     public void reemplazar(Cadena c) {
-        System.out.println("Ingrese una letra");
-          String letra = leer.next();
-        String frase = c.getFrase();
-        for (int i = 0; i < c.getLongitud(); i++) {
-            String letraA = frase.substring(i, i + 1);
-            if (letraA.equalsIgnoreCase("a")){
-                letraA.replace(letraA, letra);
-            }
-        }
-        System.out.println(frase);
+        System.out.println("Ingrese una letra para reemplazar");
+        String letra=leer.next();
+        String fin=c.getFrase().replaceAll("a", letra);
+        System.out.println("La frase con el reemplazo es: "+fin+"\n");
         
     }
+//   Método contiene(String letra), deberá comprobar si la frase contiene 
+//   una letra que ingresa el usuario y devuelve verdadero si la 
+//   contiene y falso si no.
     
-    
+    public boolean contiene(Cadena c){
+        System.out.println("Ingrese una letra");
+        String letra = leer.next();
+        String frase = c.getFrase();
+        boolean res = true;
+        for (int i = 0; i < c.getLongitud(); i++) {
+            String subs = frase.substring(i, (i + 1));
+            if(letra.equalsIgnoreCase(subs)){
+                res = true;
+                break;
+            }else{
+                res = false;
+                
+            }
+        }
+        
+        return res;
+    }
+
+
 }
