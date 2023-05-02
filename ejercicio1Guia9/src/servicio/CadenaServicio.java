@@ -94,7 +94,7 @@ tiene la frase ingresada.*/
         String frase2 = leer.next();
         String frase1 = c.getFrase();
         
-        frase2 = frase1.concat(frase2);
+        frase2 = frase1.concat(" " + frase2);
         return frase2;
     }
     
