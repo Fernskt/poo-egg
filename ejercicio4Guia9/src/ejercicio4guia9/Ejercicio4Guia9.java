@@ -20,14 +20,19 @@ public class Ejercicio4Guia9 {
     public static void main(String[] args) {
         
         FechaService fecha = new FechaService();
-        //Date f = fecha.fechaNacimiento();
+        Date f = fecha.fechaNacimiento();
         Date fa = fecha.fechaActual();
         
        
         
-        //System.out.println(f.getDate()+"/"+(f.getMonth()+1)+"/"+f.getYear());
+        System.out.println(f.getDate()+"/"+(f.getMonth()+1)+"/"+f.getYear());
         
+        System.out.println("tenes " + fecha.diferencia(f, fa)+ " Años" ); 
+        
+       
         System.out.println("el día actual es: " +fa.getDate());
+        
+        
     }
     
 }

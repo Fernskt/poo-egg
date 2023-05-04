@@ -1,6 +1,8 @@
 package Servicio;
 
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -23,7 +25,7 @@ public class FechaService {
 
     System.out.println("Ingrese su fecha de nacimiento;");
     System.out.println("Año: ");
-    fecha.setYear(leer.nextInt());
+    fecha.setYear(leer.nextInt()-1900);
     System.out.println("Mes: ");
     fecha.setMonth(leer.nextInt()-1);
     System.out.println("Día: ");
@@ -31,11 +33,35 @@ public class FechaService {
 
     return fecha;
     }
+    
+   
 
     public Date fechaActual() {
         Date fechaActual = new  Date();
         fechaActual.getDate();
         return fechaActual;
+    }
+     
+    
+    
+    //Método diferencia que reciba las dos fechas por parámetro y retorna la 
+    //diferencia de años entre una y otra (edad del usuario).
+    
+    public int diferencia(Date fechaNac, Date fechaActual){
+         
+       int cumple = fechaActual.getYear() - fechaNac.getYear();
+       
+       int mes = fechaActual.getMonth() - fechaNac.getMonth();
+       
+       int dia = fechaActual.getDate()  - fechaNac.getDate();
+       
+        if (mes < 0) {
+            cumple-=1;
+        }else if(dia<0 && mes==0){
+            cumple-=1;
+        }
+       
+        return cumple;
     }
 
 
