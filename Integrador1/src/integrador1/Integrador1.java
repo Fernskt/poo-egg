@@ -38,9 +38,9 @@ public class Integrador1 {
         
         System.out.println("El promedio de las notas es " + promedio);
         
-        for (int i = 0; i < estudiantes.length; i++) {
-            if(estudiantes[i].getNota() > promedio){
-                System.out.println("El estudiante " + estudiantes[i].getNombre()+" con "+estudiantes[i].getNota()+ ", recibió una nota mayor al promedio del curso");
+        for (Estudiante estudiante : estudiantes) {
+            if (estudiante.getNota() > promedio) {
+                System.out.println("El estudiante " + estudiante.getNombre() + " con " + estudiante.getNota() + ", recibió una nota mayor al promedio del curso");
             }
         }
         
