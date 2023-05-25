@@ -21,8 +21,13 @@ public class Guia10Ejercicio1 {
         
         Boolean continuar = true;
         
-        while (continuar) {
         System.out.println("Ingrese una raza de perro: ");
+       
+        
+        razasPerros.add(leer.next().toLowerCase());
+        
+        while (continuar) {
+        System.out.println("Ingrese otra raza de perro: ");
        
         
         razasPerros.add(leer.next().toLowerCase());
@@ -44,6 +49,8 @@ public class Guia10Ejercicio1 {
         
          System.out.println(razasPerros.size());
         
+         
+         
         System.out.println("Indique qué perro quiere eliminar");
         String perro = leer.next();
         
@@ -63,6 +70,7 @@ public class Guia10Ejercicio1 {
             }
        
         }
+        
         if(esta == false){
                 System.out.println("La raza no se encuentra en la lista");
             }
