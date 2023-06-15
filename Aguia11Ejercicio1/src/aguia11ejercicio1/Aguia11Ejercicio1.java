@@ -21,37 +21,49 @@ public class Aguia11Ejercicio1 {
         // Crear perros
         Perro perro1 = new Perro("Max", "Labrador", 3, 40);
         Perro perro2 = new Perro("Bella", "Chihuahua", 2, 10);
+        Perro perro3 = new Perro("filomena", "beagle", 5, 20);
+        
+        
 
         // Crear personas
-        Persona persona1 = new Persona("Juan", "Perez", 30, "12345678", null);
-        Persona persona2 = new Persona("Maria", "Gomez", 25, "87654321", null);
+        Persona persona1 = new Persona("Juan", "Perez", 30, "12345678");
+        Persona persona2 = new Persona("Maria", "Gomez", 25, "87654321");
 
         // Asignar perros a personas
-        persona1.setPerro(perro1);
-        persona2.setPerro(perro2);
+       
 
+        //persona1.setPerros(persona1.getPerros().add(perro1));
+        
+        persona1.getPerros().add(perro1);
+        persona1.getPerros().add(perro3);
+        
+        persona2.getPerros().add(perro2);
+        
+        System.out.println(persona1.toString());
+        System.out.println(persona2.toString());
+        
         // Mostrar información de las personas y sus perros
-        System.out.println("Persona 1:");
-        System.out.println("Nombre: " + persona1.getNombre());
-        System.out.println("Apellido: " + persona1.getApellido());
-        System.out.println("Edad: " + persona1.getEdad());
-        System.out.println("Documento: " + persona1.getDni());
-        System.out.println("Perro: ");
-        System.out.println("Nombre: " + persona1.getPerro().getNombre());
-        System.out.println("Raza: " + persona1.getPerro().getRaza());
-        System.out.println("Edad: " + persona1.getPerro().getEdad());
-        System.out.println("Tamaño: " + persona1.getPerro().getTamano());
-
-        System.out.println("\nPersona 2:");
-        System.out.println("Nombre: " + persona2.getNombre());
-        System.out.println("Apellido: " + persona2.getApellido());
-        System.out.println("Edad: " + persona2.getEdad());
-        System.out.println("Documento: " + persona2.getDni());
-        System.out.println("Perro: ");
-        System.out.println("Nombre: " + persona2.getPerro().getNombre());
-        System.out.println("Raza: " + persona2.getPerro().getRaza());
-        System.out.println("Edad: " + persona2.getPerro().getEdad());
-        System.out.println("Tamaño: " + persona2.getPerro().getTamano());
+//        System.out.println("Persona 1:");
+//        System.out.println("Nombre: " + persona1.getNombre());
+//        System.out.println("Apellido: " + persona1.getApellido());
+//        System.out.println("Edad: " + persona1.getEdad());
+//        System.out.println("Documento: " + persona1.getDni());
+//        System.out.println("Perro: ");
+//        System.out.println("Nombre: " + persona1.getPerro().getNombre());
+//        System.out.println("Raza: " + persona1.getPerro().getRaza());
+//        System.out.println("Edad: " + persona1.getPerro().getEdad());
+//        System.out.println("Tamaño: " + persona1.getPerro().getTamano());
+//
+//        System.out.println("\nPersona 2:");
+//        System.out.println("Nombre: " + persona2.getNombre());
+//        System.out.println("Apellido: " + persona2.getApellido());
+//        System.out.println("Edad: " + persona2.getEdad());
+//        System.out.println("Documento: " + persona2.getDni());
+//        System.out.println("Perro: ");
+//        System.out.println("Nombre: " + persona2.getPerro().getNombre());
+//        System.out.println("Raza: " + persona2.getPerro().getRaza());
+//        System.out.println("Edad: " + persona2.getPerro().getEdad());
+//        System.out.println("Tamaño: " + persona2.getPerro().getTamano());
     }
 }
         

@@ -50,6 +50,11 @@ public class Perro {
     public void setTamano(int tamano) {
         this.tamano = tamano;
     }
+
+    @Override
+    public String toString() {
+        return "Perro" + "nombre: " + nombre + ", raza: " + raza + ", edad: " + edad + ", tamano: " + tamano + ' ';
+    }
     
     
   

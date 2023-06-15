@@ -13,12 +13,12 @@ public class Pelicula {
     
     private String titulo;
     private String director;
-    private int duracion;
+    private Double duracion;
 
     public Pelicula() {
     }
 
-    public Pelicula(String titulo, String director, int duracion) {
+    public Pelicula(String titulo, String director, Double duracion) {
         this.titulo = titulo;
         this.director = director;
         this.duracion = duracion;
@@ -40,11 +40,11 @@ public class Pelicula {
         this.director = director;
     }
 
-    public int getDuracion() {
+    public Double getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(int duracion) {
+    public void setDuracion(Double duracion) {
         this.duracion = duracion;
     }
     

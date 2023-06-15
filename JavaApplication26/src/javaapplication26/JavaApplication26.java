@@ -16,11 +16,14 @@ Después de ese bucle realizaremos las siguientes acciones:
  */
 package javaapplication26;
 
+
 import Entidad.Pelicula;
 import Servicio.PeliculaService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+
 
 /**
  *
@@ -32,44 +35,61 @@ public class JavaApplication26 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        PeliculaService p = new PeliculaService();
-        List<Pelicula> listaPeliculas = new ArrayList();
-
+        
         Scanner leer = new Scanner(System.in);
-
-        Boolean crearOtraPelicula = true;
-
-        while (crearOtraPelicula) {
-            Pelicula pelicula = p.crearPelicula();
-            listaPeliculas.add(pelicula);
-
-            System.out.println("Desea agregar otra película? (s/n)");
-            String resp = leer.next();
-
-            if (resp.equalsIgnoreCase("n")) {
-                crearOtraPelicula = false;
-            }
-        }
-
-        for (Pelicula lista : listaPeliculas) {
-            System.out.println("Título: " + lista.getTitulo());
-            System.out.println("Director: " + lista.getDirector());
-            System.out.println("Duracion: " + lista.getDuracion());
-            System.out.println("\n ------------------------------- \n");
-        }
-
-        System.out.println("Peliculas con duracion mayor a una hora");
-
-        for (Pelicula lista : listaPeliculas) {
-            if (lista.getDuracion() > 1) {
-
-                System.out.println("Título: " + lista.getTitulo());
-                System.out.println("\n ------------------------------- \n");
-            }
-        }
+        PeliculaService p = new PeliculaService();
+        List<Pelicula> listaP = new ArrayList();
+       
+        listaP = p.crearPelicula();
         
-        
-
+        System.out.println("Ingrese opcion"); 
+        System.out.println("Ingrese 1 para mostrar peliculas"); 
+        System.out.println("Ingrese 2 para mostrar peliculas mayores a 1 hora"); 
+        System.out.println("Ingrese 3 para ordenar por duracion decreciente"); 
+        System.out.println("Ingrese 4 para ordenar por duracion ascendente"); 
+        System.out.println("Ingrese 5 para ordenar lista por titulo"); 
+        System.out.println("Ingrese 6 para ordenar lista por director");
+        System.out.println("Ingrese 7 para Salir"); 
+        int opcion = leer.nextInt();
+       
+       
+       switch(opcion){
+           case 1:
+               p.mostrarPeliculas(listaP);
+               break;
+           case 2:
+                p.mayor1Hora(listaP);
+                 break;
+           case 3:
+                p.ordenarDec(listaP);
+                break;
+           case 4:
+               p.ordenarCre(listaP);
+                break;
+           case 5:
+               p.ordenarTitulo(listaP);
+                break;
+           case 6:
+               p.ordenarirector(listaP);
+               break;
+           case 7:
+               System.out.println("Hasta Luego");
+               break;
+           default:
+               System.out.println("Opcion incorrecta");
+               
+       }
+       
+       
+     
+     
+    
+    
+     
+     
+     
+     
+  
     }
 
 }
