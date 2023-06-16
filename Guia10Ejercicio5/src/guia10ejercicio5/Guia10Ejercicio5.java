@@ -5,6 +5,8 @@
  */
 package guia10ejercicio5;
 
+import PaisesServicio.PaisesServicio;
+
 /**
  *
  * @author Pc
@@ -15,7 +17,13 @@ public class Guia10Ejercicio5 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        PaisesServicio paise = new PaisesServicio();
+        paise.conjuntoPaises();
+        paise.eliminarPais();
+        
     }
+    
+   
     
 }
