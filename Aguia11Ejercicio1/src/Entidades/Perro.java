@@ -1,4 +1,8 @@
-
+/*
+Realizar un programa para que una Persona pueda adoptar un Perro. Vamos a contar de dos
+clases. Perro, que tendrá como atributos: nombre, raza, edad y tamaño; y la clase Persona con
+atributos: nombre, apellido, edad, documento y Perro.
+*/
 package Entidades;
 
 
@@ -53,7 +57,7 @@ public class Perro {
 
     @Override
     public String toString() {
-        return "Perro" + "nombre: " + nombre + ", raza: " + raza + ", edad: " + edad + ", tamano: " + tamano + ' ';
+        return "Perro " + "nombre: " + nombre + ", raza: " + raza + ", edad: " + edad + ", tamano: " + tamano + ' ';
     }
     
     

@@ -1,4 +1,8 @@
-
+/*
+Realizar un programa para que una Persona pueda adoptar un Perro. Vamos a contar de dos
+clases. Perro, que tendrá como atributos: nombre, raza, edad y tamaño; y la clase Persona con
+atributos: nombre, apellido, edad, documento y Perro.
+*/
 package Entidades;
 
 import java.util.ArrayList;
@@ -9,7 +13,7 @@ public class Persona {
     private String apellido;
     private int edad;
     private String dni;
-    private ArrayList<Perro> perros= new ArrayList();
+    private ArrayList<Perro> perros;
     
     
 
