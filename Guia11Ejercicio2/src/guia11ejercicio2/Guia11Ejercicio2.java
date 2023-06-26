@@ -6,6 +6,10 @@ La baraja estará compuesta por un conjunto de cartas, 40 exactamente.
  */
 package guia11ejercicio2;
 
+import Entidades.Baraja;
+import Entidades.Carta;
+import java.util.HashSet;
+
 /**
  *
  * @author Pc
@@ -16,7 +20,26 @@ public class Guia11Ejercicio2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        Baraja baraja = new Baraja();
+        baraja.crearBaraja();
+        baraja.barajar();
+        
+        System.out.println("Las cartas disponibles en la baraja: " + baraja.cartasDisponibles());
+        
+        HashSet<Carta> cartasPedidas = baraja.darCartas(5);
+        
+        if(cartasPedidas != null){
+            System.out.println("Cartas obtenidas: ");
+            for (Carta carta : cartasPedidas) {
+                System.out.println(carta);
+            }
+        }
+        
+        System.out.println("__________________________");
+        System.out.println("Cartas disponibles en la baraja: " + baraja.cartasDisponibles() + " cartas ");
+        baraja.cartasMonton();
+        baraja.mostrarBaraja();
     }
     
 }

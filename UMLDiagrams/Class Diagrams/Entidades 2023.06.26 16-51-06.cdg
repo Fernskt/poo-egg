@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Entidades">
+  <ClassDiagramComponents>
+    <Class name="Carta" package="Entidades" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="num" type="int" visibility="private"/>
+        <Field name="palo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="num"/>
+          <Argument type="String" name="palo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNum" returnType="int" visibility="public"/>
+        <Method name="setNum" returnType="void" visibility="public">
+          <Argument type="int" name="num"/>
+        </Method>
+        <Method name="getPalo" returnType="String" visibility="public"/>
+        <Method name="setPalo" returnType="void" visibility="public">
+          <Argument type="String" name="palo"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
