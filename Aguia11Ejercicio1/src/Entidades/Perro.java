@@ -11,12 +11,12 @@ public class Perro {
     private String nombre;
     private String raza;
     private int edad;
-    private int tamano;
+    private String tamano;
 
     public Perro() {
     }
 
-    public Perro(String nombre, String raza, int edad, int tamano) {
+    public Perro(String nombre, String raza, int edad, String tamano) {
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
@@ -47,17 +47,17 @@ public class Perro {
         this.edad = edad;
     }
 
-    public int getTamano() {
+    public String getTamano() {
         return tamano;
     }
 
-    public void setTamano(int tamano) {
+    public void setTamano(String tamano) {
         this.tamano = tamano;
     }
 
     @Override
     public String toString() {
-        return "Perro " + "nombre: " + nombre + ", raza: " + raza + ", edad: " + edad + ", tamano: " + tamano + ' ';
+        return "Adoptó a:  " + nombre + ", raza: " + raza + ", edad: " + edad + " años, de tamaño: " + tamano + ' ';
     }
     
     
