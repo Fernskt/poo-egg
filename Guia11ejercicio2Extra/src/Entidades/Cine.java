@@ -11,4 +11,42 @@ package Entidades;
  */
 public class Cine {
     
+    private Pelicula pelicula;
+    private double precio;
+    private int [][] sala;
+
+    public Cine() {
+    }
+
+    public Cine(Pelicula pelicula, double precio, int[][] sala) {
+        this.pelicula = pelicula;
+        this.precio = precio;
+        this.sala = sala;
+    }
+
+    public Pelicula getPelicula() {
+        return pelicula;
+    }
+
+    public void setPelicula(Pelicula pelicula) {
+        this.pelicula = pelicula;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public int[][] getSala() {
+        return sala;
+    }
+
+    public void setSala(int[][] sala) {
+        this.sala = sala;
+    }
+         
+    
 }
