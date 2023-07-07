@@ -5,8 +5,8 @@
  */
 package guia12ejercicio2;
 
-import Entidades.Electrodomestico;
 import Entidades.Lavadora;
+import Entidades.Televisor;
 
 
 
@@ -25,10 +25,22 @@ public class Guia12Ejercicio2 {
         
      Lavadora electrodomestico = new Lavadora();
      electrodomestico.crearLavadora();
+     
+      System.out.println("El precio de la Lavadore es $" +electrodomestico.precioFinal());
+        System.out.println("El color de la Lavadora es: "+ electrodomestico.getColor());
+     
+        System.out.println("_____________________________");
+         System.out.println("Televisor");
+        
+        
+     Televisor televisor = new Televisor();
+     televisor.crearTelevisor();
     
       
-        System.out.println("El precio de electrodomestico es $" +electrodomestico.precioFinal());
-        System.out.println("El color del electrodomestico es: "+ electrodomestico.getColor());
+       
+        
+        System.out.println("El precio del televisor es $" +televisor.precioFinal());
+        System.out.println("El color del televisor es: "+ televisor.getColor());
        
     }
     

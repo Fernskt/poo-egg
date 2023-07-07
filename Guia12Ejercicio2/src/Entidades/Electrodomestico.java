@@ -63,7 +63,7 @@ public class Electrodomestico {
     public void comprobarConsumoEnergetico(char letra){
         letra = consumoEnergetico;
                 if(letra > 'f'){
-                    letra = 'F';
+                    letra = 'f';
                 }
     }
     
