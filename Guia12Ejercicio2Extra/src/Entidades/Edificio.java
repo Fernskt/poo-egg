@@ -9,7 +9,7 @@ package Entidades;
  *
  * @author Pc
  */
-public class Edificio {
+public abstract class Edificio {
     
     protected double ancho;
     protected double alto;

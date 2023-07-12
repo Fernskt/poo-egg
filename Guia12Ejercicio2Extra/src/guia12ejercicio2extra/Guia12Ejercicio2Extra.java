@@ -33,8 +33,7 @@ public class Guia12Ejercicio2Extra {
         
         edificios.add(p1);
         edificios.add(p2);
-        edificios.add(eo1);
-        edificios.add(eo2);
+   
         
         for (Edificio edificio : edificios) {
             edificio.calcularSuperficie();
