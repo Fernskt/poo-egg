@@ -23,15 +23,34 @@ public final class Polideportivo extends Edificio {
         this.techado = techado;
     }
 
-    @Override
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Boolean getTechado() {
+        return techado;
+    }
+
+    public void setTechado(Boolean techado) {
+        this.techado = techado;
+    }
+    
+    
+
+   @Override
     public double calcularSuperficie() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return largo * ancho;
     }
 
     @Override
     public double calcularVolumen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return ancho * largo * alto;
     }
+    
 
  
     

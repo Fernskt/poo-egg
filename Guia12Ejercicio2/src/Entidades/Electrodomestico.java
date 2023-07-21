@@ -13,6 +13,7 @@ import java.util.Scanner;
  */
 public class Electrodomestico {
     
+    protected String tipo;
     protected double precio;
     protected String color;
     protected char consumoEnergetico;
@@ -21,12 +22,15 @@ public class Electrodomestico {
     public Electrodomestico() {
     }
 
-    public Electrodomestico(double precio, String color, char consumoEnergetico, double peso) {
+    public Electrodomestico(String tipo, double precio, String color, char consumoEnergetico, double peso) {
+        this.tipo = tipo;
         this.precio = precio;
         this.color = color;
         this.consumoEnergetico = consumoEnergetico;
         this.peso = peso;
     }
+
+   
 
     public double getPrecio() {
         return precio;
@@ -44,6 +48,16 @@ public class Electrodomestico {
         this.color = color;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    
+
     public char getConsumoEnergetico() {
         return consumoEnergetico;
     }
@@ -60,10 +74,10 @@ public class Electrodomestico {
         this.peso = peso;
     }
     
-    public void comprobarConsumoEnergetico(char letra){
-        letra = consumoEnergetico;
-                if(letra > 'f'){
-                    letra = 'f';
+    public void comprobarConsumoEnergetico(){
+        
+                if(consumoEnergetico > 'f'){
+                    consumoEnergetico = 'f';
                 }
     }
     
@@ -89,12 +103,12 @@ public class Electrodomestico {
         System.out.println("Indique color del electrodoméstico");
         color = leer.next();
         comprobarColor();
-        System.out.println(color);
+        System.out.println("Ok, " + color);
         System.out.println("Indique consumo energético del electrodoéstico");
         String entrada = leer.next();
         consumoEnergetico = entrada.charAt(0);
         System.out.println(consumoEnergetico);
-        comprobarConsumoEnergetico(consumoEnergetico);
+        comprobarConsumoEnergetico();
         System.out.println("Indique el peso del electrodoméstico");
         peso = leer.nextDouble();
         

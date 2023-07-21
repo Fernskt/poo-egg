@@ -5,11 +5,10 @@
  */
 package guia12ejercicio2;
 
+import Entidades.Electrodomestico;
 import Entidades.Lavadora;
 import Entidades.Televisor;
-
-
-
+import java.util.ArrayList;
 
 /**
  *
@@ -22,26 +21,40 @@ public class Guia12Ejercicio2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        // Lavadora(int carga, double precio, String color, char consumoEnergetico, double peso)
+        //Televisor(int resolucion, String sintonizadorTDT, double precio, String color, char consumoEnergetico, double peso)
+        double suma = 0;
+        double precioFinal;
+        ArrayList<Electrodomestico> electrodomesticos = new ArrayList();
         
-     Lavadora electrodomestico = new Lavadora();
-     electrodomestico.crearLavadora();
-     
-      System.out.println("El precio de la Lavadore es $" +electrodomestico.precioFinal());
-        System.out.println("El color de la Lavadora es: "+ electrodomestico.getColor());
-     
-        System.out.println("_____________________________");
-         System.out.println("Televisor");
-        
-        
-     Televisor televisor = new Televisor();
-     televisor.crearTelevisor();
-    
-      
-       
-        
-        System.out.println("El precio del televisor es $" +televisor.precioFinal());
-        System.out.println("El color del televisor es: "+ televisor.getColor());
-       
+
+        Lavadora lavadora1 = new Lavadora(50, "Lavadora", 1000, "negro", 'a', 25);
+        Lavadora lavadora2 = new Lavadora(45, "Lavadora", 1000, "gris", 't', 55);
+        Televisor tv1 = new Televisor(1070, "si", "Televisor", 1000, "verde", 'c', 20);
+        Televisor tv2 = new Televisor(720, "no", "Televisor", 1000, "blanco", 'b', 20);
+
+        electrodomesticos.add(lavadora1);
+        electrodomesticos.add(lavadora2);
+        electrodomesticos.add(tv1);
+        electrodomesticos.add(tv2);
+
+        for (Electrodomestico electrodomestico1 : electrodomesticos) {
+           
+            precioFinal = electrodomestico1.precioFinal();
+            electrodomestico1.comprobarColor();
+           electrodomestico1.comprobarConsumoEnergetico();
+            System.out.println("El precio final del/la " + electrodomestico1.getTipo() + " de C/E tipo ("+ electrodomestico1.getConsumoEnergetico() + ") color " + electrodomestico1.getColor() + " es $" + precioFinal);
+            System.out.println("");
+            suma+=precioFinal;
+
+        }
+
+        System.out.println("");
+        System.out.println("____________________________________________");
+        System.out.println("");
+        System.out.println("El precio TOTAL de la compra es: $" + suma);
+        System.out.println("");
+
     }
-    
+
 }

@@ -16,11 +16,13 @@ public final class Lavadora extends Electrodomestico {
     public Lavadora() {
     }
 
-
-    public Lavadora(int carga, double precio, String color, char consumoEnergetico, double peso) {
-        super(precio, color, consumoEnergetico, peso);
+    public Lavadora(int carga, String tipo, double precio, String color, char consumoEnergetico, double peso) {
+        super(tipo, precio, color, consumoEnergetico, peso);
         this.carga = carga;
     }
+
+
+    
 
     public int getCarga() {
         return carga;
@@ -47,6 +49,8 @@ public final class Lavadora extends Electrodomestico {
          }
          return precio;
     }
+    
+    
     
     
 }

@@ -17,11 +17,14 @@ public final class Televisor extends Electrodomestico {
     public Televisor() {
     }
 
-    public Televisor(int resolucion, String sintonizadorTDT, double precio, String color, char consumoEnergetico, double peso) {
-        super(precio, color, consumoEnergetico, peso);
+    public Televisor(int resolucion, String sintonizadorTDT, String tipo, double precio, String color, char consumoEnergetico, double peso) {
+        super(tipo, precio, color, consumoEnergetico, peso);
         this.resolucion = resolucion;
         this.sintonizadorTDT = sintonizadorTDT;
     }
+
+
+
 
     public int getResolucion() {
         return resolucion;

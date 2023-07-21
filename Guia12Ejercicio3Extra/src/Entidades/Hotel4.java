@@ -29,10 +29,10 @@ public class Hotel4 extends Hoteles {
     public double precioHabitacion() {
         super.precioHabitacion();
         double precio;
-        
+       
         if(capacidadRest<30){
          precio =  precioHabitacion() + 10;
-        }else if(capacidadRest <= 50 ){
+        }else if(capacidadRest >= 30 && capacidadRest <= 50 ){
             precio =  precioHabitacion() + 30;
         }else{
             precio = precioHabitacion() + 50;
