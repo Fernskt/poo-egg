@@ -41,7 +41,7 @@ public class EdificioDeOficinas extends Edificio {
         
         int cantPersonaXEdificio = cantPersonasXOficina * numOficinas * numPisos;
         
-        System.out.println("La cantidad de personas que entran en un edificio es: " + cantPersonaXEdificio);
+        System.out.println("En el edificio entran: " + cantPersonaXEdificio + " personas");
     }
     
 

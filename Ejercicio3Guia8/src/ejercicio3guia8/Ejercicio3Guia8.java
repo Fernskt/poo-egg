@@ -30,77 +30,147 @@ personas cuantas están por debajo de su peso, cuantas en su peso ideal y cuanto
 por encima, y también calcularemos un porcentaje de cuantos son mayores de edad
 y cuantos menores. Para esto, podemos crear unos métodos adicionales.
 
-*/
-
-
+ */
 package ejercicio3guia8;
 
 import Entidades.Persona;
 import Servicios.PersonaServicio;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Ejercicio3Guia8 {
 
     public static void main(String[] args) {
 
-        PersonaServicio servicio = new PersonaServicio();
+        PersonaServicio personaService = new PersonaServicio();
 
-        Persona p1 = servicio.crearPersona();
-        Persona p2 = servicio.crearPersona();
-        Persona p3 = servicio.crearPersona();
-        Persona p4 = servicio.crearPersona();
+        ArrayList<Persona> personas = new ArrayList();
 
-        List<Integer> imcs = new ArrayList<>();
-        List<Boolean> mayoresEdad = new ArrayList<>();
+        Persona p1 = personaService.crearPersona();
 
-        Persona[] personas = new Persona[]{p1, p2, p3, p4};
-        for (int i = 0; i < personas.length; i++) {
-            Persona p = personas[i];
-            
-            System.out.println("Datos de la persona:");
-            System.out.println(p.getNombre() + " - " + p.getEdad() + " años - " + p.getSexo() + " - " + p.getPeso() + " kg - " + p.getAltura() + " m");
+        Persona p2 = personaService.crearPersona();
 
-            int imc = servicio.calcularIMC(p);
-            imcs.add(imc);
-            String mensajeIMC = "";
-            if (imc == -1) {
-                mensajeIMC = "Está por debajo de su peso ideal";
-            } else if (imc == 0) {
-                mensajeIMC = "Está en su peso ideal";
-            } else {
-                mensajeIMC = "Tiene sobrepeso";
+//        Persona p3 = personaService.crearPersona();
+//
+//        Persona p4 = personaService.crearPersona();
+
+        personas.add(p1);
+        personas.add(p2);
+//        personas.add(p3);
+//        personas.add(p4);
+
+        int total = personas.size();
+        int personasBajoPeso = 0;
+        int personasPesoIdeal = 0;
+        int personasExcesoPeso = 0;
+        int mayorEdad = 0;
+        int menorEdad = 0;
+        String  mensajeIMC = "";
+
+        for (Persona persona : personas) {
+
+            switch (personaService.calcularIMC(persona)) {
+                case -1:
+                    personasBajoPeso++;
+                   mensajeIMC = persona.getNombre() + ", con " + persona.getPeso() +" Kg, y " + persona.getAltura() +"mts,  está por debajo de su peso ideal";
+                    break;
+                case 0:
+                    personasPesoIdeal++;
+                    mensajeIMC = persona.getNombre() + ", con " + persona.getPeso() +" Kg, y " + persona.getAltura() +"mts, Tiene un peso ideal";
+                    break;
+                default:
+                    personasExcesoPeso++;
+                    mensajeIMC = persona.getNombre() + ", con " + persona.getPeso() +" Kg, y " + persona.getAltura() +"mts, Está excedido de peso";
+                    break;
             }
+
+           if (personaService.esMayorDeEdad(persona)){
+               mayorEdad++;
+           } else {
+               menorEdad++;
+           }
             System.out.println(mensajeIMC);
-
-            // es mayor de edad
-            boolean esMayor = servicio.esMayorDeEdad(p);
-            mayoresEdad.add(esMayor);
-            String mensajeEdad = esMayor ? "Es mayor de edad" : "Es menor de edad";
-            System.out.println(mensajeEdad);
-
-            System.out.println("-------------------------");
         }
+        
+        System.out.println("____________________________________________________");
+        System.out.println("____________________________________________________");
 
-        // porcentaje de personas con cada tipo de IMC
-        int total = imcs.size();
-        int bajoPeso = 0;
-        int pesoIdeal = 0;
-        int sobrePeso = 0;
-        for (int imc : imcs) {
-            if (imc == -1) {
-                bajoPeso++;
-            } else if (imc == 0) {
-                pesoIdeal++;
-            } else {
-                sobrePeso++;
-            }
-        }
-        double porcentajeBajoPeso = ((double) bajoPeso / total) * 100;
-        double porcentajePesoIdeal = ((double) pesoIdeal / total) * 100;
-        double porcentajeSobrePeso = ((double) sobrePeso / total) * 100;
-        System.out.println("Porcentaje de personas con bajo peso: " + porcentajeBajoPeso + "%");
-        System.out.println("Porcentaje de personas en su peso ideal: " + porcentajePesoIdeal + "%");
-        System.out.println("Porcentaje de personas con sobrepeso: " + porcentajeSobrePeso + "%");
+        double porcentajeBajoPeso = ((double) personasBajoPeso / total) * 100;
+        double porcentajePesoIdeal = ((double) personasPesoIdeal / total) * 100;
+        double porcentajeSobrePeso = ((double) personasExcesoPeso / total) * 100;
+        
+        System.out.println(
+                "Porcentaje de personas con bajo peso: " + porcentajeBajoPeso + "%");
+        System.out.println(
+                "Porcentaje de personas en su peso ideal: " + porcentajePesoIdeal + "%");
+        System.out.println(
+                "Porcentaje de personas con sobrepeso: " + porcentajeSobrePeso + "%");
+        
+        System.out.println("____________________________________________________");
+        System.out.println("____________________________________________________");
+        
+        
+
+//        PersonaServicio servicio = new PersonaServicio();
+//        ArrayList<Persona> personas = new ArrayList();
+//
+//        Persona p = servicio.crearPersona();
+//
+//        List<Integer> imcs = new ArrayList<>();
+//        List<Boolean> mayoresEdad = new ArrayList<>();
+//
+//        System.out.println("Datos de la persona:");
+//        System.out.println(p.getNombre() + " - " + p.getEdad() + " años - " + p.getSexo() + " - " + p.getPeso() + " kg - " + p.getAltura() + " m");
+//
+//        int imc = servicio.calcularIMC(p);
+//        imcs.add(imc);
+//        String mensajeIMC = "";
+//        if (imc == -1) {
+//            mensajeIMC = "Está por debajo de su peso ideal";
+//        } else if (imc == 0) {
+//            mensajeIMC = "Está en su peso ideal";
+//        } else {
+//            mensajeIMC = "Tiene sobrepeso";
+//        }
+//        System.out.println(mensajeIMC);
+//
+//        // es mayor de edad
+//        boolean esMayor = servicio.esMayorDeEdad(p);
+//        mayoresEdad.add(esMayor);
+//        String mensajeEdad = esMayor ? "Es mayor de edad" : "Es menor de edad";
+//        System.out.println(mensajeEdad);
+//
+//        System.out.println("-------------------------");
+//    }
+//
+//    // porcentaje de personas con cada tipo de IMC
+//    int total = imcs.size();
+//    int bajoPeso = 0;
+//    int pesoIdeal = 0;
+//    int sobrePeso = 0;
+//    for (int imc : imcs
+//
+//    
+//        ) {
+//            if (imc == -1) {
+//            bajoPeso++;
+//        } else if (imc == 0) {
+//            pesoIdeal++;
+//        } else {
+//            sobrePeso++;
+//        }
+//    }
+//    double porcentajeBajoPeso = ((double) bajoPeso / total) * 100;
+//    double porcentajePesoIdeal = ((double) pesoIdeal / total) * 100;
+//    double porcentajeSobrePeso = ((double) sobrePeso / total) * 100;
+//
+//    System.out.println (
+//
+//    "Porcentaje de personas con bajo peso: " + porcentajeBajoPeso + "%");
+//    System.out.println (
+//
+//    "Porcentaje de personas en su peso ideal: " + porcentajePesoIdeal + "%");
+//    System.out.println (
+//
+//"Porcentaje de personas con sobrepeso: " + porcentajeSobrePeso + "%");
     }
 }
