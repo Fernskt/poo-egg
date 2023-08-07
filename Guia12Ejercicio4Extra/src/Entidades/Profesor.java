@@ -22,7 +22,16 @@ public class Profesor extends Empleado {
     }
 
    
-   
+   public void cambioDepartamento(String nuevoDepartamento){
+       this.departamento = nuevoDepartamento;
+   }
+
+    @Override
+    public void mostrarInformacion() {
+        super.mostrarInformacion(); 
+        System.out.println("Departamento: " + departamento);
+    }
     
+   
     
 }

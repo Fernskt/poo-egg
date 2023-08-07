@@ -27,10 +27,15 @@ public class Empleado extends Persona {
         this.numDespacho = numDespacho;
     }
 
+    public void reasignacionDespacho(int nuevoNumDespacho){
+        this.numDespacho = nuevoNumDespacho;
+    }
+
     @Override
-    public String cambiarEstadoCivil() {
-        System.out.println("Ingrese Estado civil del empleado");
-        return leer.next();
+    public void mostrarInformacion() {
+        super.mostrarInformacion(); 
+        System.out.println("Año de inicio en la escuela: " + anioInicio);
+        System.out.println("Número de despacho: " + numDespacho);
     }
     
     

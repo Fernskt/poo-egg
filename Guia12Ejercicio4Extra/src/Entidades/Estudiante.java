@@ -5,8 +5,6 @@
  */
 package Entidades;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Pc
@@ -14,13 +12,23 @@ import java.util.Scanner;
 public class Estudiante extends Persona {
 
     private String curso;
-    
-    Scanner leer = new Scanner(System.in);
-    
-    @Override
-    public String cambiarEstadoCivil() {
-        System.out.println("Ingrese el estado civil del/la estudiante:");
-        return leer.next();
+
+    public Estudiante() {
     }
+
+    public Estudiante(String curso, String nombre, String apellido, int dni, String EstadoCivil) {
+        super(nombre, apellido, dni, EstadoCivil);
+        this.curso = curso;
+    }
+
+    @Override
+    public void mostrarInformacion() {
+        super.mostrarInformacion(); 
+        System.out.println("Curso: " + curso);
+    }
+    
+  
+    
+ 
     
 }

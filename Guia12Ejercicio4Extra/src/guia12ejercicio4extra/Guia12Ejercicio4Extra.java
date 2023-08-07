@@ -5,6 +5,12 @@
  */
 package guia12ejercicio4extra;
 
+import Entidades.Empleado;
+import Entidades.Estudiante;
+import Entidades.Persona;
+import Entidades.PersonalDeServicio;
+import Entidades.Profesor;
+
 /**
  *
  * @author Pc
@@ -16,6 +22,16 @@ public class Guia12Ejercicio4Extra {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Empleado profesor1 = new Profesor();
+        Empleado personalServicio = new PersonalDeServicio();
+        
+        Persona est1 = new Estudiante();
+        Persona est2 = new Estudiante();
+        Persona est3 = new Estudiante();
+        
+        
+        
     }
     
 }

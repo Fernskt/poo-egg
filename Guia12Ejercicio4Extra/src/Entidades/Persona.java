@@ -14,7 +14,7 @@ public abstract class Persona {
     protected String nombre;
     protected String apellido;
     protected int dni;
-    protected String EstadoCivil;
+    protected String estadoCivil;
 
     public Persona() {
     }
@@ -23,10 +23,21 @@ public abstract class Persona {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
-        this.EstadoCivil = EstadoCivil;
+        this.estadoCivil = EstadoCivil;
     }
     
-    public abstract String cambiarEstadoCivil();
+    public void  cambiarEstadoCivil(String nuevoEstadoCivil){
+        this.estadoCivil = nuevoEstadoCivil;
+    };
+    
+    public void mostrarInformacion(){
+        
+        System.out.println("Nombre y apellido: " + nombre + " "+apellido);
+        System.out.println("DNI: " + dni);
+        System.out.println("Estado civil: " + estadoCivil);
+        
+    }
+    
     
     
 }

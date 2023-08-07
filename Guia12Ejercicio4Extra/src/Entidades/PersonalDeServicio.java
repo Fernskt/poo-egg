@@ -21,6 +21,14 @@ public class PersonalDeServicio extends Empleado {
         this.puesto = puesto;
     }
     
-    
+    public void cambioPuesto(String nuevoPuesto){
+        this.puesto = nuevoPuesto;
+    }
+
+    @Override
+    public void mostrarInformacion() {
+        super.mostrarInformacion(); 
+        System.out.println("Puesto: " + puesto);
+    }
     
 }
