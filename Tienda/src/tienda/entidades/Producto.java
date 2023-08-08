@@ -14,12 +14,12 @@ public class Producto {
     private int codigo;
     private String nombre;
     private double precio;
-    private Fabricante codigoFabricante;
+    private int codigoFabricante;
 
     public Producto() {
     }
 
-    public Producto(int codigo, String nombre, double precio, Fabricante codigoFabricante) {
+    public Producto(int codigo, String nombre, double precio, int codigoFabricante) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
@@ -50,11 +50,11 @@ public class Producto {
         this.precio = precio;
     }
 
-    public Fabricante getCodigoFabricante() {
+    public int getCodigoFabricante() {
         return codigoFabricante;
     }
 
-    public void setCodigoFabricante(Fabricante codigoFabricante) {
+    public void setCodigoFabricante(int codigoFabricante) {
         this.codigoFabricante = codigoFabricante;
     }
     

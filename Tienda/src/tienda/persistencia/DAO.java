@@ -32,10 +32,47 @@ public abstract class DAO {
             Class.forName(DRIVER);
             String url = "jdbc:mysql://localhost:3306/"+DATABASE+"?useSSL=false";
             conexion = DriverManager.getConnection(url , USER , PASSWORD);
-            
         } catch(ClassNotFoundException | SQLException ex) {
             throw ex;
         }
     }
+    
+    protected void desconectarBase() throws Exception{
+        try{
+            if (resultado != null) {
+                resultado.close();
+            }
+              if (sentencia != null) {
+                sentencia.close();
+            }
+                if (conexion != null) {
+                conexion.close();
+            }
+        }catch(Exception e){
+            throw e;
+        }
+    }
+    
+    protected void actualizarDatos(String sql) throws Exception{
+        try {
+            conectarBase();
+            sentencia = conexion.createStatement();
+            sentencia.executeUpdate(sql);
+        } catch (ClassNotFoundException | SQLException ex) {          
+            throw ex;
+        }finally{
+            desconectarBase();
+        }
+    }
+    
+    protected void consultarBase(String sql) throws Exception{
+        try {
+            conectarBase();
+            sentencia = conexion.createStatement();
+            resultado = sentencia.executeQuery(sql);
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw ex;
+        } 
+    } 
 
 }
