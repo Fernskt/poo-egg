@@ -9,7 +9,7 @@ package tienda.persistencia;
  *
  * @author Pc
  */
-public class FabricanteDAO extends DAO {
+public final class FabricanteDAO extends DAO {
     
     
     
