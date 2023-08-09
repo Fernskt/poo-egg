@@ -20,8 +20,8 @@ public final class ProductoDAO extends DAO{
             if (producto == null){
                 throw new Exception("Debe indicar un producto");
             }
-            String sql = "INSERT INTO producto (codigo, nombre, precio)" 
-                    + "VALUES ( " + producto.getCodigo() + " , ' "+ producto.getNombre() + " ',  "  + producto.getPrecio() +" );";
+            String sql = "INSERT INTO producto (codigo, nombre, precio, codigo_fabricante)" 
+                    + "VALUES ( " + producto.getCodigo() + " , ' "+ producto.getNombre() + " ',  "  + producto.getPrecio() + " ," + producto.getCodigoFabricante() + " );";
             actualizarDatos(sql);   
         } catch (Exception e) {
             throw e;
@@ -65,6 +65,8 @@ public final class ProductoDAO extends DAO{
                 producto.setNombre(resultado.getString(2));
                 producto.setPrecio(resultado.getDouble(3));
                 producto.setCodigoFabricante(resultado.getInt(4));  
+                
+                
              }
              desconectarBase();
              return producto;
