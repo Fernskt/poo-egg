@@ -7,6 +7,8 @@ package ejercicio1_libreriajpa.entidades;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -17,14 +19,13 @@ import javax.persistence.Id;
 public class Autor implements Serializable {
 
 @Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 private int id;
 private String nombre;
-private boolean alta = true;
+private boolean alta = false;
 
     public Autor() {
     }
-
-
 
     public Autor(int id, String nombre) {
         this.id = id;
@@ -54,9 +55,7 @@ private boolean alta = true;
     public void setAlta(boolean alta) {
         this.alta = alta;
     }
-    
-    
 
-
+    
    
 }

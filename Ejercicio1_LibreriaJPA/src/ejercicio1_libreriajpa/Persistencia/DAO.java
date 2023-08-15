@@ -13,6 +13,7 @@ import javax.persistence.Persistence;
  *
  * @author Pc
  * @param <T>
+ 
  */
 public class DAO<T> {
     
@@ -51,14 +52,14 @@ public class DAO<T> {
        
    }
    
-   public void guardar(T objeto){
+   public void create(T objeto){
        try {
            conectar();
            em.getTransaction().begin();
            em.persist(objeto);
            em.getTransaction().commit();         
        } catch (Exception e) {
-           System.out.println("No se pudo cargar");
+           System.out.println("No se pudo cargar " + objeto);
            if(em.getTransaction().isActive()){
                em.getTransaction().rollback();
            }
@@ -68,7 +69,7 @@ public class DAO<T> {
    }       
    }
    
-   public void editar(T objeto){
+   public void update(T objeto){
        
        try {
            conectar();
@@ -82,7 +83,7 @@ public class DAO<T> {
        }  
    }
         
-public void eliminar(T objeto){
+public void delete(T objeto){
     
     try{
            conectar();

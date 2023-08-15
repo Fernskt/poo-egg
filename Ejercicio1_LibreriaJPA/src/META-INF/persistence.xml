@@ -5,9 +5,8 @@
     <class>ejercicio1_libreriajpa.entidades.Autor</class>
     <class>ejercicio1_libreriajpa.entidades.Editorial</class>
     <class>ejercicio1_libreriajpa.entidades.Libro</class>
-    <shared-cache-mode>DISABLE_SELECTIVE</shared-cache-mode>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/libreria"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/libreria?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="root"/>
