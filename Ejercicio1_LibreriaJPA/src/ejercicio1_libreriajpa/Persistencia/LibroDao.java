@@ -2,6 +2,7 @@
 package ejercicio1_libreriajpa.Persistencia;
 
 import ejercicio1_libreriajpa.entidades.Libro;
+import java.util.List;
 
 /**
  *
@@ -33,5 +34,11 @@ public class LibroDao extends DAO<Libro> {
         super.delete(libro); 
     }
    
+    public List<Libro> buscarLibroNombre(String nombre){
+        
+    String jpql = "SELECT l FROM Libro l WHERE l.titulo LIKE '%"+nombre+"%'";
+     return em.createQuery(jpql, Libro.class).getResultList();
+        
+    }
     
 }

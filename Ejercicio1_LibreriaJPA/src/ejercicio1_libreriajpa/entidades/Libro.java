@@ -18,7 +18,7 @@ import javax.persistence.OneToOne;
 public class Libro implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long isbn;
     private String titulo;
     private int anio;

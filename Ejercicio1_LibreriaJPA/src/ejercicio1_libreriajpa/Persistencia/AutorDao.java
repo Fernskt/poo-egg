@@ -6,6 +6,7 @@
 package ejercicio1_libreriajpa.Persistencia;
 
 import ejercicio1_libreriajpa.entidades.Autor;
+import java.util.List;
 
 /**
  *
@@ -37,7 +38,16 @@ public class AutorDao extends DAO<Autor> {
         super.delete(autor); 
     }
     
+    public List buscarAutor(){
+        return em.createQuery("SELECT a FROM Autor a").getResultList();
+    }
     
+    public List<Autor> buscarAutorNombre(String nombre){
+        
+    String jpql = "SELECT a FROM Autor a WHERE a.nombre LIKE '%"+nombre+"%'";
+     return em.createQuery(jpql, Autor.class).getResultList();
+        
+    }
     
     
 }

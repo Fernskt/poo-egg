@@ -30,7 +30,7 @@ public class DAO<T> {
         try {
             if(!em.isOpen()){
                 em = emf.createEntityManager();
-                System.out.println("Se conectó a la base de datos correctamente");
+                System.out.println("Ok!");
             }
         } catch (Exception e) {
             System.out.println("No se puede realizar la conexión");

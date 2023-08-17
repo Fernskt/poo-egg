@@ -22,7 +22,7 @@ public class Editorial implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
-    private boolean alta = true;
+    private boolean alta = false;
 
     public Editorial() {
     }
