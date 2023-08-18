@@ -37,7 +37,9 @@ public class Ejercicio1_LibreriaJPA {
         
         System.out.println("Sistema de Gestión de altas y bajas de libros");
         System.out.println("____________________________");
-
+        try {
+            
+       
         while(aux){
             
         System.out.println("Menú: ");
@@ -82,6 +84,9 @@ public class Ejercicio1_LibreriaJPA {
                     aux = false;
                 }
         }
+        }
+        } catch (Exception error) {
+            System.out.println("Sólo puede ingresar números " + error);
         }
         
         System.out.println("¡Hasta Pronto!");

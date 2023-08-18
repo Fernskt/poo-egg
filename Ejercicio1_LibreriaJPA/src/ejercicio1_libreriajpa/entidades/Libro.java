@@ -8,7 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+
 
 /**
  *
@@ -26,10 +27,10 @@ public class Libro implements Serializable {
     private int ejemplaresPrestados;
     private int ejemplaresRestantes;
     private boolean alta = true;
-    @OneToOne
+    @ManyToOne
     private Autor autor;
     
-    @OneToOne
+    @ManyToOne
     private Editorial editorial; 
 
     public Libro() {

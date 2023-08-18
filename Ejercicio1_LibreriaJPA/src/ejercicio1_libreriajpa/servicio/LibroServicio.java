@@ -43,16 +43,47 @@ public class LibroServicio {
         libro.setEjemplaresRestantes(ejempl);
         
         System.out.println("Ingrese el autor del libro");
-        autor.setNombre(leer.next());
-        autor.setAlta(true);
-        autorDao.create(autor);
-        libro.setAutor(autor);
+        String nombreA = leer.next();
+        
+        boolean aux = true;
+       
+        
+        List<Autor> autores = autorDao.buscarAutorNombre(nombreA);
+        
+        for (Autor autore : autores) {
+            if(autore.getNombre().equalsIgnoreCase(nombreA)){
+                libro.setAutor(autore);
+                aux = false;
+            }
+        }
+        if(aux){
+                autor.setNombre(nombreA);
+                 autor.setAlta(true);
+                 autorDao.create(autor);
+                 libro.setAutor(autor);
+        }
+         
         
         System.out.println("Ingrese la editorial del libro");
-        editorial.setNombre(leer.next());
-        editorial.setAlta(true);
-        editorialDao.create(editorial);
-        libro.setEditorial(editorial);
+        String nombreE = leer.next();
+        
+        aux = true;
+        
+        List<Editorial> editoriales = editorialDao.buscarEditorialNombre(nombreE);
+        
+        for (Editorial editoriale : editoriales) {
+            if(editoriale.getNombre().equalsIgnoreCase(nombreE)){
+                libro.setEditorial(editoriale);
+                aux = false;
+            }
+        }
+        if(aux){
+             editorial.setNombre(nombreE);
+                  editorial.setAlta(true);
+                  editorialDao.create(editorial);
+                  libro.setEditorial(editorial);
+        }
+                 
         
         libroDao.create(libro);
         

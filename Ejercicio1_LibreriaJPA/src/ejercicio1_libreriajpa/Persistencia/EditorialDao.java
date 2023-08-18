@@ -6,6 +6,7 @@
 package ejercicio1_libreriajpa.Persistencia;
 
 import ejercicio1_libreriajpa.entidades.Editorial;
+import java.util.List;
 
 /**
  *
@@ -37,7 +38,12 @@ public class EditorialDao extends DAO<Editorial> {
         super.delete(editorial); 
     }
 
-   
+   public List<Editorial> buscarEditorialNombre(String nombre){
+        
+    String jpql = "SELECT e FROM Editorial e WHERE e.nombre LIKE '%"+nombre+"%'";
+     return em.createQuery(jpql, Editorial.class).getResultList();
+        
+    }
 
   
     
