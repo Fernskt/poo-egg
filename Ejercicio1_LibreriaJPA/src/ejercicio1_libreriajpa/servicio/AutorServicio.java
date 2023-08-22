@@ -60,8 +60,6 @@ public class AutorServicio {
         
     }
     
-    
-    
     public void eliminarAutor(){
         
          System.out.println("Ingrese el ID del autor a eliminar ");

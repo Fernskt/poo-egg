@@ -4,6 +4,7 @@ import ejercicio1_libreriajpa.entidades.Autor;
 import ejercicio1_libreriajpa.entidades.Editorial;
 import ejercicio1_libreriajpa.entidades.Libro;
 import ejercicio1_libreriajpa.servicio.AutorServicio;
+import ejercicio1_libreriajpa.servicio.ClienteServicio;
 import ejercicio1_libreriajpa.servicio.EditorialServicio;
 import ejercicio1_libreriajpa.servicio.LibroServicio;
 import java.util.Scanner;
@@ -26,6 +27,7 @@ public class Ejercicio1_LibreriaJPA {
         AutorServicio autorServicio = new AutorServicio();
         LibroServicio libroServicio = new LibroServicio();
         EditorialServicio editorialServicio = new EditorialServicio();
+        ClienteServicio clienteServicio = new ClienteServicio();
         
         //Entidades Instancias
         
@@ -33,13 +35,13 @@ public class Ejercicio1_LibreriaJPA {
         Libro libro = new Libro();
         Editorial editorial = new Editorial();
         
+        
         boolean aux = true;
         
         System.out.println("Sistema de Gestión de altas y bajas de libros");
         System.out.println("____________________________");
         try {
-            
-       
+      
         while(aux){
             
         System.out.println("Menú: ");
@@ -88,6 +90,8 @@ public class Ejercicio1_LibreriaJPA {
         } catch (Exception error) {
             System.out.println("Sólo puede ingresar números " + error);
         }
+        
+        clienteServicio.crearcliente();
         
         System.out.println("¡Hasta Pronto!");
 
