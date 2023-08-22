@@ -7,6 +7,7 @@ import ejercicio1_libreriajpa.servicio.AutorServicio;
 import ejercicio1_libreriajpa.servicio.ClienteServicio;
 import ejercicio1_libreriajpa.servicio.EditorialServicio;
 import ejercicio1_libreriajpa.servicio.LibroServicio;
+import ejercicio1_libreriajpa.servicio.PrestamoServicio;
 import java.util.Scanner;
 
 /**
@@ -28,6 +29,7 @@ public class Ejercicio1_LibreriaJPA {
         LibroServicio libroServicio = new LibroServicio();
         EditorialServicio editorialServicio = new EditorialServicio();
         ClienteServicio clienteServicio = new ClienteServicio();
+        PrestamoServicio prestamoServicio = new PrestamoServicio();
         
         //Entidades Instancias
         
@@ -52,6 +54,7 @@ public class Ejercicio1_LibreriaJPA {
         System.out.println("5: Buscar autor por nombre");
         System.out.println("6: Alta o Baja de libro");
         System.out.println("7: Buscar libro por nombre");
+        System.out.println("8 Crear Prestamo");
         System.out.println("0: Salir");
         
         System.out.println("____________________________");
@@ -79,6 +82,10 @@ public class Ejercicio1_LibreriaJPA {
                 break;
             case 7:
                 libroServicio.buscarLibroPorNombre();
+                break;
+            case 8:
+                prestamoServicio.crearPrestamo();
+                break;
             case 0:
                 System.out.println("Seguro desea salir? S/N");
                 String salir = leer.next();

@@ -6,7 +6,7 @@
 package ejercicio1_libreriajpa.entidades;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,10 +25,9 @@ public class Prestamo implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
   
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date fechaPrestamo;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date fechaDevolucion;
+    
+    private LocalDate fechaPrestamo;
+    private LocalDate fechaDevolucion;
     @OneToOne
     private Libro libro;
     @OneToOne
@@ -37,13 +36,15 @@ public class Prestamo implements Serializable {
     public Prestamo() {
     }
 
-    public Prestamo(int id, Date fechaPrestamo, Date fechaDevolucion, Libro libro, Cliente cliente) {
+    public Prestamo(int id, LocalDate fechaPrestamo, LocalDate fechaDevolucion, Libro libro, Cliente cliente) {
         this.id = id;
         this.fechaPrestamo = fechaPrestamo;
         this.fechaDevolucion = fechaDevolucion;
         this.libro = libro;
         this.cliente = cliente;
     }
+
+   
 
     public int getId() {
         return id;
@@ -53,19 +54,19 @@ public class Prestamo implements Serializable {
         this.id = id;
     }
 
-    public Date getFechaPrestamo() {
+    public LocalDate getFechaPrestamo() {
         return fechaPrestamo;
     }
 
-    public void setFechaPrestamo(Date fechaPrestamo) {
+    public void setFechaPrestamo(LocalDate fechaPrestamo) {
         this.fechaPrestamo = fechaPrestamo;
     }
 
-    public Date getFechaDevolucion() {
+    public LocalDate getFechaDevolucion() {
         return fechaDevolucion;
     }
 
-    public void setFechaDevolucion(Date fechaDevolucion) {
+    public void setFechaDevolucion(LocalDate fechaDevolucion) {
         this.fechaDevolucion = fechaDevolucion;
     }
 

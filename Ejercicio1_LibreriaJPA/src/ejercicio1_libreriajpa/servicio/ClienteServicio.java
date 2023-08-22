@@ -46,11 +46,57 @@ public class ClienteServicio {
         }
     }
     
-    public void editarCliente(Cliente cl){
-        
-        System.out.println("Ingrese el ID del cliente a modificar");
-        
-        
+    public void editarCliente(Cliente cl) {
+        System.out.println("Ingrese el Id del cliente a modificar: ");
+        int IdAModificar = leer.nextInt();
+        cl = clienteDao.findID(IdAModificar);
+
+        if (cl != null) {
+            System.out.println("Ingrese la opción deseada para cliente: ");
+            System.out.println("1: Modificar el D.N.I");
+            System.out.println("2: Modificar el nombre ");
+            System.out.println("3: Modificar el apellido");
+            System.out.println("4: Modificar el teléfono");
+            int opcion = leer.nextInt();
+            switch (opcion) {
+                case 1:
+                    System.out.println("Ingrese el D.N.I correcto.");
+                    cl.setDni(leer.nextLong());
+                    break;
+                case 2:
+                    System.out.println("Ingrese el nombre correcto.");
+                    cl.setNombre(leer.next());
+                    break;
+                case 3:
+                    System.out.println("Ingrese el apellido correcto.");
+                    cl.setApellido(leer.next());
+                    break;
+                case 4:
+                    System.out.println("Ingrese el télefono correcto.");
+                    cl.setTelefono(leer.next());
+                    break;
+                default:
+                    System.out.println("Opción incorrecta.");
+                    throw new AssertionError();
+            }
+
+            clienteDao.update(cl);
+            System.out.println("Se modificó correctamente a " + cl.getNombre() + cl.getApellido());
+        }
+    }
+    
+    public void eliminarCliente(Cliente cl) {
+
+        System.out.println("Ingrese el Id del cliente a eliminar");
+        cl = clienteDao.findID(leer.nextInt());
+
+        if (cl != null) {
+            clienteDao.delete(cl);
+            System.out.println("Se ha eliminado a: " + cl.getNombre() + cl.getApellido());
+        } else {
+            System.out.println("ID incorrecto");
+        }
+
     }
     
 }
